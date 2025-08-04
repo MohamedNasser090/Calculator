@@ -110,3 +110,33 @@ form input.number {
     transform: translateY(-2px);
   }
 }
+@media screen and (max-width: 480px) {
+  .calculate {
+    padding: 15px;
+    border-radius: 8px;
+    width: 95%;
+    max-width: 360px;
+  }
+
+  .calculate form input {
+    width: 55px;
+    height: 55px;
+    margin: 6px;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+
+  .calculate form .equal {
+    width: calc(55px * 2 + 12px); /* عشان يساوي عرض زرين */
+  }
+
+  .display input[type="text"] {
+    height: 50px;
+    font-size: 20px;
+  }
+
+  body {
+    padding: 10px;
+  }
+}
+

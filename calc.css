@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background: linear-gradient(100deg, #1575b4, #5b47c2);
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.calculate {
+  background: rgba(30, 30, 30, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+  animation: glowPulse 3s ease-in-out infinite;
+}
+.calculate form input {
+  border: none;
+  outline: none;
+  width: 65px;
+  height: 65px;
+  margin: 10px;
+  border-radius: 15px;
+  background: #111;
+  color: #0ff;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2),
+  inset 0 0 10px rgba(0, 255, 255, 0.1);
+  transition: 0.2s;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.calculate form input[type="button"]:hover {
+  background: #0ff;
+  color: #000;
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff, inset 0 0 10px #fff;
+}
+.display {
+  display: flex;
+  justify-content: end;
+  margin: 20px 0;
+}
+.display input[type="text"] {
+  width: 100%;
+  height: 60px;
+  padding: 0 15px;
+  font-size: 24px;
+  border-radius: 10px;
+  background: #000;
+  color: #0ff;
+  border: none;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.display input[type="text"]:focus {
+  box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.4);
+}
+.calculate form .equal {
+  width: 150px;
+  background: #34c759;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.calculate form .equal:hover {
+  background: #00ffff;
+  color: #000;
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+}
+form input.operator {
+  background-color:  #0f8dc3;
+}
+form input.math {
+  background-color:  #6c63ff;
+}
+form input.clearall {
+  background-color: #ff3b30;
+}
+form input.number {
+  background-color: #2e2e2e;
+}
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+}
+
+
+@keyframes softBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}

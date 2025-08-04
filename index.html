@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./calc.css" />
+    <title>Calculate</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculate">
+        <form action="">
+          <div class="display"><input type="text" name="display" /></div>
+          <div>
+            <input type="button" value="sin" onclick="applyFunc('sin')" class="math"/>
+            <input type="button" value="cos" onclick="applyFunc('cos')" class="math"/>
+            <input type="button" value="tan" onclick="applyFunc('tan')" class="math"/>
+            <input type="button" value="%" onclick="applyPercentage()" class="math"/>
+          </div>
+          <div>
+            <input type="button" value="AC" onclick="display.value = ''" class="clearall"/>
+            <input
+              type="button"
+              value="DE"
+              onclick="display.value = display.value.toString().slice(0, -1)"
+            />
+            <input type="button" value="." onclick="display.value += '.'" class="number"/>
+            <input type="button" value="/" onclick="display.value += '/'" class="operator"/>
+          </div>
+          <div>
+            <input type="button" value="7" onclick="display.value += '7'" class="number"/>
+            <input type="button" value="8" onclick="display.value += '8'" class="number"/>
+            <input type="button" value="9" onclick="display.value += '9'" class="number"/>
+            <input type="button" value="*" onclick="display.value += '*'" class="operator"/>
+          </div>
+          <div>
+            <input type="button" value="4" onclick="display.value += '4'" class="number"/>
+            <input type="button" value="5" onclick="display.value += '5'" class="number"/>
+            <input type="button" value="6" onclick="display.value += '6'" class="number"/>
+            <input type="button" value="-" onclick="display.value += '-'" class="operator"/>
+          </div>
+          <div>
+            <input type="button" value="1" onclick="display.value += '1'" class="number"/>
+            <input type="button" value="2" onclick="display.value += '2'" class="number"/>
+            <input type="button" value="3" onclick="display.value += '3'" class="number"/>
+            <input type="button" value="+" onclick="display.value += '+'" class="operator"/>
+          </div>
+          <div>
+            <input type="button" value="00" onclick="display.value += '00'" class="number"/>
+            <input type="button" value="0" onclick="display.value += '0'" class="number"/>
+            <input
+              type="button"
+              value="="
+              class="equal"
+              onclick="display.value = eval(display.value)"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      const display = document.querySelector('input[name="display"]');
+
+      function applyFunc(funcName) {
+        try {
+          let val = parseFloat(display.value);
+
+          if (isNaN(val)) {
+            display.value = "Error";
+            return;
+          }
+
+          let rad = (val * Math.PI) / 180;
+
+          let result;
+
+          if (funcName === "sin") result = Math.sin(rad);
+          if (funcName === "cos") result = Math.cos(rad);
+          if (funcName === "tan") result = Math.tan(rad);
+
+          display.value = result;
+        } catch {
+          display.value = "Error";
+        }
+      }
+      function applyPercentage() {
+        try {
+          let val = parseFloat(display.value);
+          if (isNaN(val)) {
+            display.value = "Error";
+            return;
+          }
+
+          display.value = val / 100;
+        } catch {
+          display.value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
